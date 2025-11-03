@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function LoginForm({ onSwitch }) {
+export default function LoginForm({ onClick }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -40,7 +40,7 @@ export default function LoginForm({ onSwitch }) {
             <p className="mt-4 text-center text-sm text-gray-600">
                 Not registered yet?{" "}
                 <button
-                    onClick={onSwitch}
+                    onClick={onClick}
                     className="text-blue-600 hover:underline font-medium"
                 >
                     Register Now
