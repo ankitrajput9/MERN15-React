@@ -14,8 +14,17 @@ const handleSubmit=(e)=>{
 e.preventDefault()
 const updatedUser=[...userData,formData]
 setUserData(updatedUser)
-localStorage.setItem("user",JSON.stringify(updatedUser))
-alert("user Register succesfully 🎉🎉")
+const ChekUser=userData.some(
+    (user)=>user.username===formData.username
+) 
+if(ChekUser){
+    alert("User already exist")
+}else{
+    localStorage.setItem("user",JSON.stringify(updatedUser))
+    alert("user Register succesfully 🎉🎉")
+    
+}
+
 setFormData({
         username:'',
         fullname:'',

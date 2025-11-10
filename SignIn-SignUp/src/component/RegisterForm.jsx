@@ -7,8 +7,7 @@ export default function RegisterForm({ onClick }) {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    console.log("Register Data:", { username, email, password });
-  };
+    console.log("Register Data:", { username, email, password });};
 
   return (
     <div className="bg-white p-8 rounded-2xl shadow-2xl w-80">
