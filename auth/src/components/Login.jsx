@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Login = ({onClick}) => {
+const Login = ({onClick,userData}) => {
     const [formData, setFormData] = useState({
         username:'',
         password:''
@@ -12,7 +12,18 @@ setFormData({...formData,[name]:value})
 
 const handleSubmit=(e)=>{
     e.preventDefault()
-    console.log(formData)
+const exist=userData.some((user)=>{user.username===formData.username})
+   if(!exist){
+    alert("user not found")
+    return;
+   }
+const checkCred =userData.find((user)=>user.username===formData.username && user.password===formData.password)
+if(checkCred){
+    alert("Loged in ")
+}
+else{
+    alert("invalid credentials")
+}
     setFormData({
            username:'',
         password:''

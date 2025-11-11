@@ -13,7 +13,7 @@ const Register = ({ onClick,setUserData,userData }) => {
 const handleSubmit=(e)=>{
 e.preventDefault()
 const updatedUser=[...userData,formData]
-setUserData(updatedUser)
+setUserData((prev)=>[...prev,formData])
 const ChekUser=userData.some(
     (user)=>user.username===formData.username
 ) 
