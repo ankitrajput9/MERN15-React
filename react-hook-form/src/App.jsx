@@ -2,23 +2,63 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 const App = () => {
-
-  const {register,handleSubmit,reset}= useForm()
-
-  const formSubmitdata=(data)=>{
-console.log(data)
-reset()
-   }
+  const {register,
+    handleSubmit,
+    reset,
+    formState:{errors}
+  }=useForm(()=>{
+ 
+  })
+const formDataSubmit=(data)=>{
+  console.log(data)
+  reset()
+}
   return (
     <div>
-   
-   <form onSubmit={handleSubmit(formSubmitdata)} >
-    <input {...register("name")} type="text" placeholder='name' />
-    <input {...register("email")}  type="text" placeholder='email' />
-    <input {...register("password")}  type="password" placeholder='password' />
-    <input type="submit" value="Submit" />
+      <form onSubmit={handleSubmit(formDataSubmit)}
+      style={{
+        display:"flex",
+        flexDirection:"column",
+        width:"50%",
+        gap:"10px"
+      }} 
+      action="">
+         <input style={{
+          padding:"8px",
+          borderRadius:"10px",
+          border:"1px solid black"
+         }} 
+         {...register("name" ,{required:true})} type="text" placeholder='Name' />
+         {errors.name &&<p>Name is Required</p>}
+         {/* {errors.name && errors.name.type=== "required"?<p>Error in name </p>:null} */}
+         {}
+         <input style={{
+          padding:"8px",
+          borderRadius:"10px",
+          border:"1px solid black"
+         }}
+          {...register("email",{required:true})} type="text" placeholder='Email' />
+         {/* {errors.email && <p>Required Email</p>} */}
+         <input style={{
+          padding:"8px",
+          borderRadius:"10px",
+          border:"1px solid black"  
+         }} 
+         {...register("username",{required:true})} type="text" placeholder='Username' />
+         {/* {errors.username && <p>Required User</p>}*/}
+         <input style={{
+          padding:"8px",
+          borderRadius:"10px",
+          border:"1px solid black"
+         }} 
+         {...register("password",{required:true,minLength:4})} type="password" placeholder='Password' />
+         {/* {errors.password && errors.password.type==="required"?<p>password is required</p>:null } */}
+         {/* {errors.password && errors.password.type==="minLength"? <p>Pass must be 4 char</p>:null} */}
 
-   </form>
+        <input type="submit" value="Submit" />
+
+      </form>
+      
     </div>
   );
 }
