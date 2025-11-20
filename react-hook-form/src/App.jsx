@@ -51,9 +51,9 @@ const formDataSubmit=(data)=>{
           borderRadius:"10px",
           border:"1px solid black"
          }} 
-         {...register("password",{required:true,minLength:4})} type="password" placeholder='Password' />
+         {...register("password",{required:true,minLength:6})} type="password" placeholder='Password' />
          {/* {errors.password && errors.password.type==="required"?<p>password is required</p>:null } */}
-         {/* {errors.password && errors.password.type==="minLength"? <p>Pass must be 4 char</p>:null} */}
+         {errors.password && errors.password.type==="minLength"? alert(" password must have at least 6 char") :null}
 
         <input type="submit" value="Submit" />
 
