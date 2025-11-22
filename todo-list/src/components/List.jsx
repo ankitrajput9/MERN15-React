@@ -3,10 +3,10 @@ import { Tasks } from '../context/Context';
 
 const List = ({elem}) => {
 
-  const {setInputvalue,Inputvalue}=useContext(Tasks)
+  const {setInputvalue,Inputvalue,setEditedId}=useContext(Tasks)
 
   const handleUpdate=()=>{
-   
+   setEditedId(elem.id)
   }
   const handleDelete =(e)=>{
     let filteredArr = Inputvalue.filter((val)=> val.id !== elem.id);

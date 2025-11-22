@@ -1,9 +1,19 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Tasks } from '../context/Context';
 import { nanoid } from 'nanoid'
 const Inputfield = () => {
   const [inputtask, setInputtask] = useState("")
-const {setInputvalue,Inputvalue}=useContext(Tasks)
+
+const {setInputvalue,Inputvalue,editedId,setEditedId}=useContext(Tasks)
+
+
+useEffect(() => {
+if(editedId){
+  let updatedArr= Inputvalue.find((elem)=>elem.id === editedId)
+   setInputtask(updatedArr?.task); 
+}
+}, [editedId])
+
 // Yaha complete form subbmission handle kiya hai ek function bana kr 
   const handleSubmit=(e)=>{
 e.preventDefault()
@@ -11,6 +21,21 @@ e.preventDefault()
 if(inputtask.trim()===""){
   return
 }
+
+
+if(editedId){
+  let updatedTask= Inputvalue.find((val)=>val.id === editedId)
+ updatedTask.task=inputtask
+
+ let upValue= [...Inputvalue]
+ setInputvalue(upValue)
+ localStorage.setItem("tasks",JSON.stringify(upValue))
+setInputtask("")
+setEditedId(null)
+ return
+
+}
+
 // Context mai value send with the help of useContext or array ke andar object mai key value pair bana kr real value or unique id with the help of nanoid 
 let updatedVal=[...Inputvalue,{id:nanoid() ,task:inputtask}]
 setInputvalue(updatedVal)
