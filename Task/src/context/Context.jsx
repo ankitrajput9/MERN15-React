@@ -4,11 +4,11 @@ export const Mystore = createContext()
 
 export const Myprovider = ({children})=>{
 
-    const [num, setNum] = useState("")
-  console.log(num)
+    const [num, setNum] = useState([])
+    const [editedId, setEditedId] = useState(null)
 return(
 
-    <Mystore.Provider value={{num,setNum}}>
+    <Mystore.Provider value={{num,setNum,editedId,setEditedId}}>
         {children}
     </Mystore.Provider>
 )
