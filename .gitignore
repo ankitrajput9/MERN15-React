@@ -1,4 +1,10 @@
 /Basics/node_module
 /auth/node_module
-
+/Basics/node_module
+/Context-Api/node_module
+/practice/node_module
+/SignIn-SignUp/node_module
+/Task/node_module
+/todo-list/node_module
 /react-hook-form/node_module
+/react-routers/node_module
