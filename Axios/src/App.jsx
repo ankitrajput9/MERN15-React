@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import Card from './component/Card';
 
 const App = () => {
   const [product, setProduct] = useState([])
@@ -19,11 +20,9 @@ const App = () => {
   
 
   return (
-    <div className='flex flex-col'>
+    <div className='flex h-screen flex-wrap gap-10 p-6'>
     {product.map((elem)=>{
-     return(
-      <h1 key={elem.id} >{elem.title}</h1>
-     )
+     return <Card key={elem.id} elem={elem}/>
     })}
     </div>
   );
