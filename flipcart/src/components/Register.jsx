@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { NavLink } from 'react-router';
+import { MyContext } from '../context/Context';
 
 const Register = ({setToggle}) => {
 
+const{setSaveddata,saveddata,getdata}  = useContext(MyContext);
     const {register,handleSubmit,reset,formState:{errors}}=useForm()
+
+
    let submitData=(data)=>{
-    console.log(data)
-  reset()
+  let arr=  [...saveddata,data]
+  setSaveddata(arr)
+   localStorage.setItem("userData",JSON.stringify(arr));
+   alert("Registered sussesfully")
+  reset() 
+
+     
+
+    
   
    }
 
@@ -41,8 +52,8 @@ const Register = ({setToggle}) => {
                 type="text"
                 placeholder="Enter Full Name"
                 className="w-full border-b-2 outline-none py-2 text-[15px] focus:border-blue-500"
-                
               />
+              {errors.fullname && <p className="text-red-500 text-sm mt-1">This field is required</p>}
             </div>
 
             {/* Mobile */}
@@ -53,6 +64,8 @@ const Register = ({setToggle}) => {
                 placeholder="Enter Mobile Number"
                 className="w-full border-b-2 outline-none py-2 text-[15px] focus:border-blue-500"
               />
+           {errors.mobile && <p className="text-red-500 text-sm mt-1">This field is required</p>}
+
             </div>
 
             {/* Email */}
@@ -63,6 +76,8 @@ const Register = ({setToggle}) => {
                 placeholder="Enter Email ID"
                 className="w-full border-b-2 outline-none py-2 text-[15px] focus:border-blue-500"
               />
+                            {errors.email && <p className="text-red-500 text-sm mt-1">This field is required</p>}
+
             </div>
 
             {/* Password */}
@@ -73,16 +88,18 @@ const Register = ({setToggle}) => {
                 placeholder="Create Password"
                 className="w-full border-b-2 outline-none py-2 text-[15px] focus:border-blue-500"
               />
+              {errors.password && <p className="text-red-500 text-sm mt-1">This field is required</p>}
+
             </div>
 
             {/* Register Button */}
-            <NavLink
-            to="/login"
+            <button
+            // to="/login"
               type="submit"
-              className="w-full bg-[#fb641b] text-white font-semibold py-2 px-6 rounded-md hover:bg-[#e85a15] transition"
+              className="w-full cursor-pointer bg-[#fb641b] text-white font-semibold py-2 px-6 rounded-md hover:bg-[#e85a15] transition"
             >
               Continue
-            </NavLink>
+            </button>
           </form>
 
           <p className="text-sm text-center mt-6">

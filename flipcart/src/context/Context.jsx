@@ -4,11 +4,14 @@ export let MyContext =createContext()
 
 export let ContextProvider= ({children})=>{
 
-const [editedid, setEditedid] = useState(null) 
 const [cartitem, setCartitem] = useState([]);
-console.log(cartitem)
-
-   return <MyContext.Provider value={{editedid,setEditedid,cartitem,setCartitem}} >
+const [saveddata, setSaveddata] = useState(()=>{
+      return JSON.parse(localStorage.getItem("userData")) || []
+  })
+  const [logindata, setLogindata] = useState(()=>{return JSON.parse(localStorage.getItem("log user"))||null})
+ 
+console.log(logindata)
+   return <MyContext.Provider value={{cartitem,setCartitem,saveddata,setSaveddata,logindata,setLogindata}} >
         {children}
     </MyContext.Provider>
 }

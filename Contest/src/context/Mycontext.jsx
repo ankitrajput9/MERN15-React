@@ -8,6 +8,8 @@ export const ContextProvider=({children})=>{
     const [recycle, setRecycle] = useState(false)
     const [fileexplorer, setFileexplorer] = useState(false)
    
+
+   
  
 
     return <MyContext.Provider value={{chrome,setChrome,recycle, setRecycle,fileexplorer,setFileexplorer}} >

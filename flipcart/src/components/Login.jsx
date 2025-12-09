@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm} from "react-hook-form"
-import { NavLink } from 'react-router';
-
+// import { NavLink } from 'react-router';
+import { MyContext } from '../context/Context';
+import { useNavigate } from 'react-router';
 const Login = ({setToggle}) => {
-
+  let navigate =useNavigate()
+let{saveddata,setLogindata}=useContext(MyContext)
   const {register,handleSubmit,reset,formState:{errors}}=useForm()
  let submitData=(data)=>{
-  
-  console.log(data)
+  let user = saveddata.find((val)=>val.email === data.email&& val.password === data.password  ) 
+
+  if(!user){
+    alert("Invalid credentials")
+    return;
+  }
+  setLogindata(user)
+  localStorage.setItem("log user",JSON.stringify(user))
+navigate("/home")
+  alert("login succesfully")
 reset()
 
  }
@@ -38,7 +48,7 @@ reset()
             {/* Mobile / Email Field */}
             <div>
               <input
-              {...register("emailorphone",{required:true})}
+              {...register("email",{required:true})}
                 type="text"
                 placeholder="Enter Email / Mobile number"
                 className="w-full border-b-2 outline-none py-2 text-[15px] focus:border-blue-500"
@@ -63,13 +73,13 @@ reset()
             </p>
 
             {/* Login Button */}
-            <NavLink
-            to="/home"
+            <button
+            // to="/home"
               type="submit"
-              className="w-full bg-[#fb641b] text-white font-semibold py-2 px-6 rounded-md hover:bg-[#e85a15] transition"
+              className="w-full cursor-pointer bg-[#fb641b] text-white font-semibold py-2 px-6 rounded-md hover:bg-[#e85a15] transition"
             >
                  Login {/* <NavLink  to="/home" >Login</NavLink> */}
-            </NavLink>
+            </button>
         
 
             <p className="text-center text-sm text-gray-500">

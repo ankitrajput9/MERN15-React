@@ -14,9 +14,9 @@ const Multiproduct = () => {
 
   return (
     <div>
-      <div className='flex gap-x-13 flex-wrap justify-center' >
-        {Product.map((elem)=>{
-            return <img className=' py-1 h-full inline-block cursor-pointer ' src={elem} alt="" />
+      <div className='flex gap-x-2 mt-1 flex-wrap justify-center' >
+        {Product.map((elem,idx)=>{
+            return <img key={idx} className='  h-50 inline-block cursor-pointer ' src={elem} alt="" />
         })}
       </div>
     </div>

@@ -13,10 +13,10 @@ const ProductCard = ({elem}) => {
       {/* <img className='h-1/2 w-full object-cover' src={elem.image} alt="" /> */}
       <div className={`h-1/2 w-full flex justify-center `} ><img className='h-full ' src={elem.image} alt="" /></div>
       <div className='flex flex-col gap-1 px-4 justify-center' >
-        <h1 className='text-center text-xl font-bold'>{elem.title}</h1>
+        <h1 className='text-center text-xl font-bold'>{elem.title.slice(0,25)}...</h1>
         <p className='font-semibold' >{elem.rating.rate} ⭐</p>
-        <p className='font-semibold' >{elem.price}$</p>
-        <div className='flex gap-3 justify-center'>
+        <p className='font-semibold' >${elem.price}</p>
+        <div className='flex justify-between p-4'>
           <button className='bg-blue-200 py-2 px-3 rounded active:scale-95 cursor-pointer' >buy now </button>
           <button onClick={handleSubmit} className='bg-blue-200 py-2 px-3 rounded active:scale-95 cursor-pointer' >Add to cart</button>
         </div>

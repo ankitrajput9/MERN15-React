@@ -21,7 +21,7 @@ const Slider = () => {
   }, []);
 
   return (
-    <div className="w-full  h-64 mx-auto overflow-hidden relative  shadow-xl ">
+    <div className="w-full  h-54 mx-auto overflow-hidden relative  shadow-xl ">
       
       <div
         className="flex h-full transition-all duration-700 ease-in-out"

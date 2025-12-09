@@ -17,7 +17,7 @@ if(editedId){
 // Yaha complete form subbmission handle kiya hai ek function bana kr 
   const handleSubmit=(e)=>{
 e.preventDefault()
-// Agar input field empty hai to Empty Task add nahi hoga return ki wajha se ruk jayega 
+// Agar input field empty hai to Empty Task add nahi hoga return ki wajha se code yahi ruk jayega 
 if(inputtask.trim()===""){
   return
 }

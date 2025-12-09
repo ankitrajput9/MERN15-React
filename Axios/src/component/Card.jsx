@@ -18,3 +18,6 @@ const Card = ({elem}) => {
 }
 
 export default Card;
+
+
+
