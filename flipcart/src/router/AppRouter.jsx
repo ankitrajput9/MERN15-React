@@ -13,6 +13,7 @@ import Loading from '../components/Loading';
 import Notfound from '../pages/Notfound';
 import Protected from '../components/protection/Protected';
 import Public from '../components/protection/Public';
+import ProductDetails from '../pages/ProductDetails';
 const AppRouter = () => {
 
   let datafetch = async () => {
@@ -89,6 +90,10 @@ const AppRouter = () => {
         {
           path: "cart",
           element: (<Cart />)
+        },
+         {
+          path: "productdetails",
+          element: (<ProductDetails/>)
         }
       ]
     }
