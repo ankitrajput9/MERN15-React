@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { MyContext } from '../context/Context';
+import { useNavigate } from 'react-router';
 
 const ProductCard = ({ elem }) => {
+  let navigate =useNavigate()
   let { setCartitem } = useContext(MyContext)
-
   let handleSubmit = () => {
     setCartitem((prev) => [...prev, elem])
   }
@@ -13,7 +14,7 @@ const ProductCard = ({ elem }) => {
         {/* <img className='h-1/2 w-full object-cover' src={elem.image} alt="" /> */}
         <div className={`h-1/2 w-full flex justify-center `} >
           <img onClick={()=>{
-            console.log("clickeddd,,,")
+    navigate(`/home/products/details/${elem.id}`)
           }} className='h-full ' src={elem.image} alt="" />
         </div>
         <div className='flex flex-col gap-1 px-4 justify-center' >
