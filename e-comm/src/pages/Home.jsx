@@ -4,8 +4,6 @@ import { productTanstackhook } from '../customhooks/productTanstackhook';
 const Home = () => {
 
   let { data, isPending } = productTanstackhook();
-
-
   return (
     <div className='flex flex-wrap gap-5 justify-center'>
       {data?.map((data) => {

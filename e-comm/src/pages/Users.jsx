@@ -1,15 +1,16 @@
 import axios from 'axios';
 
 import { usersTanstackhook } from '../customhooks/usersTanstackhook';
+import UsersCard from '../components/cards/UsersCard';
 
 const Users = () => {
 
  const {data,isPending}= usersTanstackhook();
 //  let usersdata=data||[]      instead of optioinal Chaining
   return (
-    <div>
+    <div className='flex gap-5 flex-wrap justify-center' >
       {data?.map((data) => {
-        return <h1 key={data.id} >{data.username}</h1>
+        return <UsersCard key={data.id} data={data}/>
       })}
     </div>
   );
