@@ -5,6 +5,7 @@ import Home from '../pages/Home';
 import ProtectedRoute from '../components/ProtectedRoute';
 import PublicRoute from '../components/PublicRoute';
 import Users from '../pages/Users';
+import Cart from '../pages/Cart';
 
 const AppRouters = () => {
   return (
@@ -19,6 +20,11 @@ const AppRouters = () => {
   <Route path='/users' element={<ProtectedRoute>
     <Users/>
   </ProtectedRoute>} />
+  <Route path='/cart' element={
+    <ProtectedRoute>
+      <Cart/>
+    </ProtectedRoute>
+    }/>
    </Routes>
   );
 }
