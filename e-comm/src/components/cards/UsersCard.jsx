@@ -1,7 +1,7 @@
 import React from "react";
 
 const UsersCard = ({data}) => {
-    console.log(data)
+
   const firstLetter = data.name.firstname.charAt(0).toUpperCase();
 
   return (
