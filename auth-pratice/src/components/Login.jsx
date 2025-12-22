@@ -12,7 +12,7 @@ let LSD =JSON.parse(localStorage.getItem("reg user")) ||[]
   let handleData=(data)=>{
 let user = LSD.find((val)=> val.email===data.email && val.password=== data.password)
 if(user){
-  localStorage.setItem("log user ",JSON.stringify(user))
+  localStorage.setItem("log user",JSON.stringify(user))
   dispatch(setUser(user))
 alert("Log in sucessFully")
 }
