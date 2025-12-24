@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { setToggle } from "../features/toggleSlice";
 
 const Login = () => {
-  const dispatch =useDispatch()
+  const dispatch = useDispatch()
   const {
     register,
     handleSubmit,
@@ -123,7 +123,7 @@ const Login = () => {
         {/* FOOTER */}
         <p className="text-center text-xs text-gray-300 mt-6">
           Don’t have an account?{" "}
-          <span onClick={()=> dispatch(setToggle(true))} className="underline cursor-pointer">
+          <span onClick={() => dispatch(setToggle(true))} className="underline cursor-pointer">
             Sign up for Spotify
           </span>
         </p>

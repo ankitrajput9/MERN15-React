@@ -5,12 +5,12 @@ import { useSelector } from 'react-redux';
 
 
 const AuthLayout = () => {
-let {toggle}=useSelector((state)=>state.toggle)
+  let { toggle } = useSelector((state) => state.toggle)
   return (
     <div className='h-screen flex  justify-center items-center ' >
-      {toggle? <Register/>: <Login/>}
+      {toggle ? <Register /> : <Login />}
     </div>
-  
+
   );
 }
 
