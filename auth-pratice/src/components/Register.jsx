@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { setToggle } from '../../../e-comm/src/feature/toggleslice';
 import { useForm } from 'react-hook-form'
 const Register = () => {
-  const dispatch = useDispatch()
+  const dispatch =  useDispatch()
   let { register, reset, handleSubmit, formState: { errors } } = useForm()
   const [userdata, setUserdata] = useState([])
   let handleData=(data)=>{  
