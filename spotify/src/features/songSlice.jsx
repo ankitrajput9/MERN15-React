@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, isPlain } from "@reduxjs/toolkit";
 
 const songSlice=createSlice({
     name:"music",
@@ -7,15 +7,15 @@ const songSlice=createSlice({
         isPlaying:false
     },
     reducers:{
-        setSong :(state)=>{
-            if(currentSong){
-                state.isPlaying = true
-             return
-            }
-            state.isPlaying = false
+        currentSong :(state,action)=>{
+            state.currentSong = action.payload;
+            state.isPlaying = true;
+        },
+        isPlaying:(state,action)=>{
+            state.isPlaying=action.payload;
         }
     }
 
 })
-export const {setSong}= songSlice.actions;
+export const {isPlaying,currentSong}= songSlice.actions;
 export default songSlice.reducer ;

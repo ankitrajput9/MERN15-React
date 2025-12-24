@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Outlet } from 'react-router';
 import Navbar from '../components/Navbar';
 import { FaPlayCircle } from "react-icons/fa";
@@ -25,7 +25,14 @@ import { useSelector } from 'react-redux';
 
 const HomeLayout = () => {
   const {songs}=useSelector((state)=>state.data)
-  
+  const {currentSong}=useSelector((state)=>state.music)
+
+  const audioref = useRef()
+  const clickHandle=()=>{
+    console.log("click")
+    audioref.current.play()
+  }
+
   return (
 
     <div className='h-screen ' >
@@ -93,10 +100,11 @@ const HomeLayout = () => {
           <div className='flex gap-4'>
             <button className='cursor-pointer text-gray-500/70 font-medium'><Split size={20} /></button>
             <button className='cursor-pointer'><IoPlaySkipBackSharp size={25} /></button>
-            <button className='cursor-pointer'> <FaPlayCircle size={39} /></button>
+            <button onClick={clickHandle} className='cursor-pointer'> <FaPlayCircle size={39} /></button>
             <button className='cursor-pointer'><IoPlaySkipForward size={25} /> </button>
             <button className='cursor-pointer text-gray-500/70 font-medium'><TiArrowLoop size={20} /></button>
           </div>
+          <audio ref={audioref} src={currentSong?.songUrl}></audio>
 
           <div className=' h-1 w-[40%] bg-gray-500 mt-2 rounded-2xl '>
             <div className='h-1 w-[50%] rounded-2xl bg-green-600'>
