@@ -10,7 +10,7 @@ const LeftSection = () => {
     const { songs } = useSelector((state) => state.data)
 
     return (
-        <div id='leftscroll' className='h-full flex flex-col gap-4 w-[22%]  bg-black/90  overflow-y-auto '>
+        <div id='leftscroll' className='h-full  border-r rounded-lg flex flex-col gap-4 w-[22%]  bg-black/90  overflow-y-auto '>
 
             <div className='flex justify-between h-5 items-center p-4 sticky top-0  backdrop-blur-2xl z-2 '>
                 <h1 className='font-medium'> Your Library</h1>

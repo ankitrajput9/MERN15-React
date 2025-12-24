@@ -7,15 +7,19 @@ const songSlice=createSlice({
         isPlaying:false
     },
     reducers:{
-        currentSong :(state,action)=>{
+        setcurrentSong :(state,action)=>{
             state.currentSong = action.payload;
             state.isPlaying = true;
         },
-        isPlaying:(state,action)=>{
-            state.isPlaying=action.payload;
+        PlayorPause:(state)=>{
+          if(  state.isPlaying){
+            state.isPlaying=false
+            return;
+          }
+          state.isPlaying=true
         }
     }
 
 })
-export const {isPlaying,currentSong}= songSlice.actions;
+export const {setcurrentSong,PlayorPause}= songSlice.actions;
 export default songSlice.reducer ;

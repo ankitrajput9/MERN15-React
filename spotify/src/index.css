@@ -18,6 +18,13 @@ display: none;
     transition: all ease 0.5s;
 }
 
+#songcard:hover button{
+    opacity: 100;
+}
+#songcard button{
+    transition: all ease 0.7s;
+}
+
 /* #scroll{
     background-color: ;
 } */

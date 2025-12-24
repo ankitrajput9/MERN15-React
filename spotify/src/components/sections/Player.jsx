@@ -1,19 +1,29 @@
 import { Split } from 'lucide-react';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { FaPlayCircle } from 'react-icons/fa';
 import { IoPlaySkipBackSharp, IoPlaySkipForward } from 'react-icons/io5';
 import { TiArrowLoop } from 'react-icons/ti';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { PlayorPause } from '../../features/songSlice';
 
 const Player = () => {
-    const { currentSong } = useSelector((state) => state.music)
+    const { currentSong,isPlaying } = useSelector((state) => state.music)
     const audioref = useRef()
-
+const dispatch=useDispatch()
 
     const clickHandle = () => {
-        console.log("click")
-        audioref.current.play()
+   dispatch(PlayorPause())
     }
+
+    useEffect(()=>{
+   
+          if (currentSong && isPlaying) {
+            audioref.current.play()
+        } else {
+            audioref.current.pause()
+        }
+    },[currentSong,isPlaying])
+
     return (
         <div className='h-[12%] bg-black'>
             <div className='flex flex-col text-white justify-center items-center h-full'>
@@ -24,7 +34,7 @@ const Player = () => {
                     <button className='cursor-pointer'><IoPlaySkipForward size={25} /> </button>
                     <button className='cursor-pointer text-gray-500/70 font-medium'><TiArrowLoop size={20} /></button>
                 </div>
-                
+
                 <audio ref={audioref} src={currentSong?.songUrl}></audio>
 
                 <div className=' h-1 w-[40%] bg-gray-500 mt-2 rounded-2xl '>

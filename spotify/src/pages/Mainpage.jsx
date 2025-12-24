@@ -8,7 +8,7 @@ const Mainpage = () => {
 
   return (
     
-        <div id='scroll' className='h-full w-[76%]  bg-black/90   overflow-y-auto'>
+        <div id='scroll' className='h-full rounded-lg w-[76%]  bg-black/90   overflow-y-auto'>
                 <MusicNav />
                 <div className='p-4'>
                   <p className='text-xs text-gray-400/70'>made for</p>
