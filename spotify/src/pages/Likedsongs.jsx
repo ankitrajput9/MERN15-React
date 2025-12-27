@@ -1,14 +1,12 @@
 import React from 'react';
 import MusicNav from '../components/MusicNav';
-import Songcard from '../components/cards/Songcard';
 import { useSelector } from 'react-redux';
+import Songcard from '../components/cards/Songcard';
 
-const Mainpage = () => {
-  const {songs}=useSelector((state)=>state.data)
-
+const Likedsongs = () => {
+  let {songs}=useSelector((state)=>state.data)
   return (
-    
-        <div id='scroll' className='h-full  w-[76%]  bg-black/90   overflow-y-auto'>
+    <div id='scroll' className='h-full rounded-lg w-[76%]  bg-black/90   overflow-y-auto'>
                 <MusicNav />
                 <div className='p-4'>
                   <p className='text-xs text-gray-400/70'>made for</p>
@@ -18,12 +16,12 @@ const Mainpage = () => {
                   </div >
                   <div className='flex gap-6 flex-wrap justify-center'>
                    {songs.map((elem)=><Songcard key={elem.id} elem={elem}/>)}
+                   
                   </div>
       
                 </div>
               </div>
-    
   );
 }
 
-export default Mainpage;
+export default Likedsongs;

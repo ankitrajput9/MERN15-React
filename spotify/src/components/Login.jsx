@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaGoogle, FaFacebookF, FaSpotify } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { setToggle } from "../features/toggleSlice";
+import { setUser } from "../../../e-comm/src/feature/authSlice";
 
 const Login = () => {
   const dispatch = useDispatch()
@@ -12,8 +13,19 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
+  let LSD = JSON.parse(localStorage.getItem("reguser"))||[];
+
   const onSubmit = (data) => {
-    console.log("Login Data:", data);
+console.log(data)
+ let log = LSD.find((val)=>val.email === data.email && val.password === data.password)
+
+ if(!log){
+console.log("Invalid Credentials")
+return;
+ }
+ console.log("loged In")
+ let loguser =localStorage.setItem("loguser",JSON.stringify(log))||[];
+dispatch(setUser(loguser))
   };
 
   return (

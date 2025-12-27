@@ -10,6 +10,9 @@ display: none;
 #leftscroll::-webkit-scrollbar{
 display: none;
 }
+#rightscroll::-webkit-scrollbar{
+display: none;
+}
 
 #songlist:hover button{
     opacity: 100;

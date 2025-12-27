@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaGoogle, FaFacebookF, FaSpotify } from "react-icons/fa";
 import { useDispatch } from "react-redux";
@@ -8,12 +8,19 @@ const Register = () => {
     const dispatch =useDispatch()
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+
+  const [userdata, setUserdata] = useState(JSON.parse(localStorage.getItem('reguser'))||[])
+
   const onSubmit = (data) => {
-    console.log("Register Data:", data);
+    let arr = [...userdata,data]
+    setUserdata(arr)
+    localStorage.setItem('reguser',JSON.stringify(arr))
+   reset()
   };
 
   return (

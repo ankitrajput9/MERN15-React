@@ -6,7 +6,7 @@ const RightSection = () => {
     const {currentSong}=useSelector((state)=>state.music)
     console.log(currentSong)
     return (
-        <div className='h-full  w-[22%] rounded-lg border-l bg-black/90 overflow-hidden overflow-y-auto'>
+        <div id='rightscroll' className=' h-full  w-[22%] border-l-6 border-black bg-black/90 overflow-hidden overflow-y-auto'>
             <div className='h-[80%] w-full flex items-center flex-col relative  '>
                 <img className='h-full w-full object-cover' src={currentSong?.img} alt="" />
                 <ArtistCard/>

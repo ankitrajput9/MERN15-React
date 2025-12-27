@@ -35,7 +35,7 @@ const HomeLayout = () => {
 
     <div className='h-screen ' >
                        <Navbar />
-      <div className='flex h-[80%]    justify-between  text-white  '>
+      <div className='flex h-[80%]  justify-between  text-white  '>
         {/* LEFT COMPONENT  */}
         <LeftSection />
         {/* CENTRE COMPONENT  */}
